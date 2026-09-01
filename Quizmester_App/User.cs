@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Supabase.Postgrest.Attributes;
+﻿using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
 
 namespace Quizmester_App
@@ -11,10 +10,10 @@ namespace Quizmester_App
         public long Id { get; set; }
 
         [Column("username")]
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         [Column("password")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         [Column("is_admin")]
         public bool IsAdmin { get; set; }
