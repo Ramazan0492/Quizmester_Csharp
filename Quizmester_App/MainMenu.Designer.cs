@@ -37,8 +37,11 @@
             // 
             // cmbCategories
             // 
+            cmbCategories.BackColor = Color.Black;
+            cmbCategories.FlatStyle = FlatStyle.Flat;
+            cmbCategories.ForeColor = Color.Red;
             cmbCategories.FormattingEnabled = true;
-            cmbCategories.Location = new Point(285, 165);
+            cmbCategories.Location = new Point(332, 190);
             cmbCategories.Name = "cmbCategories";
             cmbCategories.Size = new Size(151, 28);
             cmbCategories.TabIndex = 0;
@@ -46,46 +49,66 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(285, 127);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(300, 132);
             label1.Name = "label1";
-            label1.Size = new Size(134, 20);
+            label1.Size = new Size(214, 31);
             label1.TabIndex = 1;
             label1.Text = "Kies een categorie:";
             // 
             // btnStartQuiz
             // 
-            btnStartQuiz.Location = new Point(458, 123);
+            btnStartQuiz.BackColor = Color.Black;
+            btnStartQuiz.FlatAppearance.BorderSize = 0;
+            btnStartQuiz.FlatStyle = FlatStyle.Flat;
+            btnStartQuiz.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnStartQuiz.ForeColor = Color.Red;
+            btnStartQuiz.Location = new Point(584, 368);
             btnStartQuiz.Name = "btnStartQuiz";
-            btnStartQuiz.Size = new Size(94, 29);
+            btnStartQuiz.Size = new Size(204, 70);
             btnStartQuiz.TabIndex = 2;
             btnStartQuiz.Text = "Start Quiz!";
-            btnStartQuiz.UseVisualStyleBackColor = true;
+            btnStartQuiz.UseVisualStyleBackColor = false;
             btnStartQuiz.Click += btnStartQuiz_Click;
             // 
             // btnGeneralQuiz
             // 
-            btnGeneralQuiz.Location = new Point(321, 250);
+            btnGeneralQuiz.BackColor = Color.Black;
+            btnGeneralQuiz.FlatAppearance.BorderSize = 0;
+            btnGeneralQuiz.FlatStyle = FlatStyle.Flat;
+            btnGeneralQuiz.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnGeneralQuiz.ForeColor = Color.Red;
+            btnGeneralQuiz.Location = new Point(12, 368);
             btnGeneralQuiz.Name = "btnGeneralQuiz";
-            btnGeneralQuiz.Size = new Size(170, 75);
+            btnGeneralQuiz.Size = new Size(204, 70);
             btnGeneralQuiz.TabIndex = 3;
             btnGeneralQuiz.Text = "Speel General Quiz";
-            btnGeneralQuiz.UseVisualStyleBackColor = true;
+            btnGeneralQuiz.UseVisualStyleBackColor = false;
             btnGeneralQuiz.Click += btnGeneralQuiz_Click;
             // 
             // btnAdminPanel
             // 
-            btnAdminPanel.Location = new Point(50, 61);
+            btnAdminPanel.BackColor = Color.Black;
+            btnAdminPanel.FlatAppearance.BorderSize = 0;
+            btnAdminPanel.FlatStyle = FlatStyle.Flat;
+            btnAdminPanel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnAdminPanel.ForeColor = Color.Red;
+            btnAdminPanel.Location = new Point(320, 12);
             btnAdminPanel.Name = "btnAdminPanel";
-            btnAdminPanel.Size = new Size(144, 68);
+            btnAdminPanel.Size = new Size(179, 81);
             btnAdminPanel.TabIndex = 4;
             btnAdminPanel.Text = "Admin Paneel";
-            btnAdminPanel.UseVisualStyleBackColor = true;
+            btnAdminPanel.UseVisualStyleBackColor = false;
             btnAdminPanel.Click += btnAdminPanel_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.akatsuki_wallpaper;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAdminPanel);
             Controls.Add(btnGeneralQuiz);

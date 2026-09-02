@@ -39,60 +39,83 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(197, 142);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(12, 130);
             label1.Name = "label1";
-            label1.Size = new Size(119, 20);
+            label1.Size = new Size(240, 38);
             label1.TabIndex = 0;
             label1.Text = "Gebruikersnaam:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(197, 179);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(60, 169);
             label2.Name = "label2";
-            label2.Size = new Size(96, 20);
+            label2.Size = new Size(192, 38);
             label2.TabIndex = 1;
             label2.Text = "Wachtwoord:";
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(322, 139);
+            txtUsername.BackColor = Color.White;
+            txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtUsername.ForeColor = SystemColors.WindowText;
+            txtUsername.Location = new Point(267, 142);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(125, 27);
+            txtUsername.Size = new Size(148, 27);
             txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(299, 172);
+            txtPassword.BackColor = Color.White;
+            txtPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtPassword.Location = new Point(267, 181);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(125, 27);
+            txtPassword.Size = new Size(148, 27);
             txtPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(211, 67);
+            btnLogin.BackColor = Color.Gold;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnLogin.ForeColor = Color.DarkRed;
+            btnLogin.Location = new Point(91, 32);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(94, 29);
+            btnLogin.Size = new Size(148, 74);
             btnLogin.TabIndex = 4;
             btnLogin.Text = "Inloggen";
-            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(353, 67);
+            btnRegister.BackColor = Color.Gold;
+            btnRegister.FlatAppearance.BorderSize = 0;
+            btnRegister.FlatStyle = FlatStyle.Flat;
+            btnRegister.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnRegister.ForeColor = Color.DarkRed;
+            btnRegister.Location = new Point(267, 32);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(94, 29);
+            btnRegister.Size = new Size(148, 74);
             btnRegister.TabIndex = 5;
             btnRegister.Text = "Registreren";
-            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.one_piece_background;
+            BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(800, 450);
             Controls.Add(btnRegister);
             Controls.Add(btnLogin);

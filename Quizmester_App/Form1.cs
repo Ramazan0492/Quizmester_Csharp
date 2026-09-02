@@ -47,7 +47,7 @@ namespace Quizmester_App
             }
 
             try
-            { 
+            {
                 // Controleer of de gebruikersnaam al bestaat in de database
                 var checkResult = await supabase.From<User>()
                     .Where(x => x.Username == inputUsername)
@@ -122,6 +122,11 @@ namespace Quizmester_App
             {
                 MessageBox.Show("Fout bij het inloggen: " + ex.Message);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
