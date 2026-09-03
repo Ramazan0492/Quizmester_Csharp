@@ -43,11 +43,10 @@
             // 
             // lblQuestion
             // 
-            lblQuestion.AutoSize = true;
             lblQuestion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lblQuestion.Location = new Point(252, 20);
+            lblQuestion.Location = new Point(253, 13);
             lblQuestion.Name = "lblQuestion";
-            lblQuestion.Size = new Size(294, 25);
+            lblQuestion.Size = new Size(314, 58);
             lblQuestion.TabIndex = 0;
             lblQuestion.Text = "Hier komt de vraag te staan...";
             // 
@@ -131,7 +130,7 @@
             btnJoker.FlatAppearance.BorderSize = 0;
             btnJoker.FlatStyle = FlatStyle.Flat;
             btnJoker.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnJoker.Location = new Point(23, 20);
+            btnJoker.Location = new Point(9, 13);
             btnJoker.Name = "btnJoker";
             btnJoker.Size = new Size(157, 58);
             btnJoker.TabIndex = 6;
