@@ -45,7 +45,7 @@
             // 
             lblQuestion.AutoSize = true;
             lblQuestion.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lblQuestion.Location = new Point(247, 20);
+            lblQuestion.Location = new Point(252, 20);
             lblQuestion.Name = "lblQuestion";
             lblQuestion.Size = new Size(294, 25);
             lblQuestion.TabIndex = 0;
@@ -57,9 +57,9 @@
             btnAnswer1.FlatAppearance.BorderSize = 0;
             btnAnswer1.FlatStyle = FlatStyle.Flat;
             btnAnswer1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnAnswer1.Location = new Point(212, 130);
+            btnAnswer1.Location = new Point(204, 124);
             btnAnswer1.Name = "btnAnswer1";
-            btnAnswer1.Size = new Size(167, 50);
+            btnAnswer1.Size = new Size(185, 71);
             btnAnswer1.TabIndex = 1;
             btnAnswer1.Text = "button1";
             btnAnswer1.UseVisualStyleBackColor = false;
@@ -71,9 +71,9 @@
             btnAnswer2.FlatAppearance.BorderSize = 0;
             btnAnswer2.FlatStyle = FlatStyle.Flat;
             btnAnswer2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnAnswer2.Location = new Point(428, 130);
+            btnAnswer2.Location = new Point(420, 124);
             btnAnswer2.Name = "btnAnswer2";
-            btnAnswer2.Size = new Size(167, 50);
+            btnAnswer2.Size = new Size(185, 71);
             btnAnswer2.TabIndex = 2;
             btnAnswer2.Text = "button2";
             btnAnswer2.UseVisualStyleBackColor = false;
@@ -85,9 +85,9 @@
             btnAnswer3.FlatAppearance.BorderSize = 0;
             btnAnswer3.FlatStyle = FlatStyle.Flat;
             btnAnswer3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnAnswer3.Location = new Point(212, 219);
+            btnAnswer3.Location = new Point(204, 213);
             btnAnswer3.Name = "btnAnswer3";
-            btnAnswer3.Size = new Size(167, 50);
+            btnAnswer3.Size = new Size(185, 71);
             btnAnswer3.TabIndex = 3;
             btnAnswer3.Text = "button3";
             btnAnswer3.UseVisualStyleBackColor = false;
@@ -99,9 +99,9 @@
             btnAnswer4.FlatAppearance.BorderSize = 0;
             btnAnswer4.FlatStyle = FlatStyle.Flat;
             btnAnswer4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnAnswer4.Location = new Point(428, 219);
+            btnAnswer4.Location = new Point(420, 213);
             btnAnswer4.Name = "btnAnswer4";
-            btnAnswer4.Size = new Size(167, 50);
+            btnAnswer4.Size = new Size(185, 71);
             btnAnswer4.TabIndex = 4;
             btnAnswer4.Text = "button4";
             btnAnswer4.UseVisualStyleBackColor = false;
