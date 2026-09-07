@@ -81,7 +81,7 @@ namespace Quizmester_App
             Random rnd = new Random();
             antwoordenLijst = antwoordenLijst.OrderBy(x => rnd.Next()).ToList();
 
-            lblTimer.ForeColor = Color.Black; // Reset de kleur voor de nieuwe vraag
+            lblTimer.ForeColor = Color.LimeGreen; // Reset de kleur voor de nieuwe vraag
 
             // 3. Zet de geschudde antwoorden op je knoppen
             btnAnswer1.Text = antwoordenLijst[0];
@@ -193,7 +193,7 @@ namespace Quizmester_App
             }
             else
             {
-                lblTimer.ForeColor = Color.Black; // Anders is de tekst gewoon zwart
+                lblTimer.ForeColor = Color.LimeGreen; 
             }
 
             if (timeLeft <= 0)

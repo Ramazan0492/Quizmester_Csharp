@@ -56,9 +56,9 @@
             btnAnswer1.FlatAppearance.BorderSize = 0;
             btnAnswer1.FlatStyle = FlatStyle.Flat;
             btnAnswer1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnAnswer1.Location = new Point(204, 124);
+            btnAnswer1.Location = new Point(204, 108);
             btnAnswer1.Name = "btnAnswer1";
-            btnAnswer1.Size = new Size(185, 71);
+            btnAnswer1.Size = new Size(185, 86);
             btnAnswer1.TabIndex = 1;
             btnAnswer1.Text = "button1";
             btnAnswer1.UseVisualStyleBackColor = false;
@@ -70,9 +70,9 @@
             btnAnswer2.FlatAppearance.BorderSize = 0;
             btnAnswer2.FlatStyle = FlatStyle.Flat;
             btnAnswer2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            btnAnswer2.Location = new Point(420, 124);
+            btnAnswer2.Location = new Point(420, 108);
             btnAnswer2.Name = "btnAnswer2";
-            btnAnswer2.Size = new Size(185, 71);
+            btnAnswer2.Size = new Size(185, 86);
             btnAnswer2.TabIndex = 2;
             btnAnswer2.Text = "button2";
             btnAnswer2.UseVisualStyleBackColor = false;
@@ -86,7 +86,7 @@
             btnAnswer3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnAnswer3.Location = new Point(204, 213);
             btnAnswer3.Name = "btnAnswer3";
-            btnAnswer3.Size = new Size(185, 71);
+            btnAnswer3.Size = new Size(185, 86);
             btnAnswer3.TabIndex = 3;
             btnAnswer3.Text = "button3";
             btnAnswer3.UseVisualStyleBackColor = false;
@@ -100,7 +100,7 @@
             btnAnswer4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             btnAnswer4.Location = new Point(420, 213);
             btnAnswer4.Name = "btnAnswer4";
-            btnAnswer4.Size = new Size(185, 71);
+            btnAnswer4.Size = new Size(185, 86);
             btnAnswer4.TabIndex = 4;
             btnAnswer4.Text = "button4";
             btnAnswer4.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
             lblTimer.BackColor = Color.Transparent;
             lblTimer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblTimer.ForeColor = Color.LimeGreen;
-            lblTimer.Location = new Point(329, 353);
+            lblTimer.Location = new Point(326, 371);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(133, 25);
             lblTimer.TabIndex = 5;
