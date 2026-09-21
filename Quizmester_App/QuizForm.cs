@@ -97,27 +97,37 @@ namespace Quizmester_App
 
         private async void CheckAntwoord(string gekozenAntwoord)
         {
-            questionTimer.Stop();
+            questionTimer.Stop(); // De timer stopt, maar de tekst verandert NIET
             Question huidigeVraag = categoryQuestions[currentQuestionIndex];
 
-            // Kijk of de speler te laat was
+            // 1. Laat de feedback zien in je NIEUWE label (lblFeedback)
             if (gekozenAntwoord == "")
             {
-                MessageBox.Show($"De tijd is om! Helaas. Het juiste antwoord was: {huidigeVraag.CorrectAnswer}");
+                lblFeedback.Text = $"Tijd op! Het antwoord was: {huidigeVraag.CorrectAnswer}";
+                lblFeedback.ForeColor = Color.Red;
             }
-            // Kijk of het antwoord goed was
             else if (gekozenAntwoord == huidigeVraag.CorrectAnswer)
             {
-                MessageBox.Show("Helemaal goed!");
+                lblFeedback.Text = "Helemaal goed!";
+                lblFeedback.ForeColor = Color.LimeGreen;
                 score++;
+
+                // NIEUW: Werk de score direct bij op het scherm!
+                lblScore.Text = $"Score: {score} / {categoryQuestions.Count}";
             }
-            // Als het niet te laat en niet goed is, dan is het dus fout ingevuld
             else
             {
-                MessageBox.Show($"Fout! Het juiste antwoord was: {huidigeVraag.CorrectAnswer}");
+                lblFeedback.Text = $"Fout! Het was: {huidigeVraag.CorrectAnswer}";
+                lblFeedback.ForeColor = Color.Red;
             }
 
-            // Ga door naar de volgende vraag
+            // 2. Wacht 2 seconden zodat de speler de uitslag kan lezen
+            await Task.Delay(2000);
+
+            // 3. Maak de feedback tekst weer leeg, zodat hij onzichtbaar wordt voor de volgende vraag
+            lblFeedback.Text = "";
+
+            // 4. Ga door naar de volgende vraag
             currentQuestionIndex++;
 
             if (currentQuestionIndex < categoryQuestions.Count)
@@ -126,19 +136,18 @@ namespace Quizmester_App
             }
             else
             {
+                // Einde van de quiz
                 MessageBox.Show($"Einde van de quiz! Jouw score: {score} van de {categoryQuestions.Count}");
 
                 try
                 {
-                    // Maak een nieuw record aan voor in de database
                     var nieuweScore = new Score
                     {
-                        UserId = Form1.CurrentUser.Id, // We pakken de ingelogde gebruiker
+                        UserId = Form1.CurrentUser.Id,
                         ScoreValue = score,
-                        CreatedAt = DateTime.UtcNow // Hier wordt de huidige tijd toegevoegd!
+                        CreatedAt = DateTime.UtcNow
                     };
 
-                    // Stuur het naar de 'scores' tabel in Supabase
                     await Form1.supabase.From<Score>().Insert(nieuweScore);
                     MessageBox.Show("Score succesvol opgeslagen in de database!");
                 }
@@ -147,7 +156,6 @@ namespace Quizmester_App
                     MessageBox.Show("Fout bij het opslaan van de score: " + ex.Message);
                 }
 
-                // Sluit af en open het scoreboard!
                 ScoreboardForm scoreboard = new ScoreboardForm();
                 scoreboard.Show();
                 this.Close();

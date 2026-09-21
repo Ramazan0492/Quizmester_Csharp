@@ -39,6 +39,8 @@
             btnJoker = new Button();
             globalTimer = new System.Windows.Forms.Timer(components);
             lblGlobalTimer = new Label();
+            lblFeedback = new Label();
+            lblScore = new Label();
             SuspendLayout();
             // 
             // lblQuestion
@@ -109,10 +111,10 @@
             // lblTimer
             // 
             lblTimer.AutoSize = true;
-            lblTimer.BackColor = Color.Transparent;
-            lblTimer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblTimer.BackColor = Color.Black;
+            lblTimer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTimer.ForeColor = Color.LimeGreen;
-            lblTimer.Location = new Point(326, 371);
+            lblTimer.Location = new Point(74, 356);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(133, 25);
             lblTimer.TabIndex = 5;
@@ -149,11 +151,36 @@
             lblGlobalTimer.BackColor = Color.Transparent;
             lblGlobalTimer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblGlobalTimer.ForeColor = Color.LimeGreen;
-            lblGlobalTimer.Location = new Point(642, 20);
+            lblGlobalTimer.Location = new Point(615, 13);
             lblGlobalTimer.Name = "lblGlobalTimer";
             lblGlobalTimer.Size = new Size(144, 25);
             lblGlobalTimer.TabIndex = 7;
             lblGlobalTimer.Text = "Totale tijd: 60";
+            // 
+            // lblFeedback
+            // 
+            lblFeedback.AutoSize = true;
+            lblFeedback.BackColor = Color.Black;
+            lblFeedback.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFeedback.ForeColor = Color.Transparent;
+            lblFeedback.Location = new Point(470, 356);
+            lblFeedback.Name = "lblFeedback";
+            lblFeedback.Size = new Size(135, 28);
+            lblFeedback.TabIndex = 8;
+            lblFeedback.Text = "Fout of Goed";
+            lblFeedback.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.BackColor = Color.Black;
+            lblScore.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScore.ForeColor = Color.White;
+            lblScore.Location = new Point(615, 63);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(87, 28);
+            lblScore.TabIndex = 9;
+            lblScore.Text = "Score: 0";
             // 
             // QuizForm
             // 
@@ -162,6 +189,8 @@
             BackgroundImage = Properties.Resources.better_picture;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(798, 450);
+            Controls.Add(lblScore);
+            Controls.Add(lblFeedback);
             Controls.Add(lblGlobalTimer);
             Controls.Add(btnJoker);
             Controls.Add(lblTimer);
@@ -189,5 +218,7 @@
         private Button btnJoker;
         private System.Windows.Forms.Timer globalTimer;
         private Label lblGlobalTimer;
+        private Label lblFeedback;
+        private Label lblScore;
     }
 }
