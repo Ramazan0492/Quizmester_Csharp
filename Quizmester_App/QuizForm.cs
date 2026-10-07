@@ -15,11 +15,10 @@ namespace Quizmester_App
         public long currentCategoryId;
         public List<Question> categoryQuestions;
 
-        // Hier staat hij nu netjes bovenaan:
         public int currentQuestionIndex = 0;
         public int score = 0;
         public int timeLeft;
-        public int globalTimeLeft = 60; 
+        public int globalTimeLeft = 60;
 
         public QuizForm(long categoryId)
         {
@@ -31,16 +30,13 @@ namespace Quizmester_App
         {
             try
             {
-                // Check of we de General Quiz (0) spelen of een normale categorie
                 if (currentCategoryId == 0)
                 {
-                    // Haal ALLE vragen uit de database op, zonder filter
                     var result = await Form1.supabase.From<Question>().Get();
                     categoryQuestions = result.Models;
                 }
                 else
                 {
-                    // Haal alleen de vragen van de specifieke categorie op
                     var result = await Form1.supabase.From<Question>()
                         .Where(x => x.CategoryId == currentCategoryId)
                         .Get();
@@ -68,7 +64,6 @@ namespace Quizmester_App
             Question huidigeVraag = categoryQuestions[currentQuestionIndex];
             lblQuestion.Text = huidigeVraag.QuestionText;
 
-            // 1. Stop alle 4 de antwoorden in een tijdelijke lijst
             List<string> antwoordenLijst = new List<string>
             {
                 huidigeVraag.CorrectAnswer,
@@ -77,30 +72,27 @@ namespace Quizmester_App
                 huidigeVraag.WrongAnswer3
             };
 
-            // 2. Schud de lijst willekeurig door elkaar
             Random rnd = new Random();
             antwoordenLijst = antwoordenLijst.OrderBy(x => rnd.Next()).ToList();
 
-            lblTimer.ForeColor = Color.LimeGreen; // Reset de kleur voor de nieuwe vraag
+            lblTimer.ForeColor = Color.LimeGreen;
 
-            // 3. Zet de geschudde antwoorden op je knoppen
             btnAnswer1.Text = antwoordenLijst[0];
             btnAnswer2.Text = antwoordenLijst[1];
             btnAnswer3.Text = antwoordenLijst[2];
             btnAnswer4.Text = antwoordenLijst[3];
 
-            // Zet de timer op de limiet uit de database (bijv. 15 seconden)
-            timeLeft = huidigeVraag.TimeLimit;
+            // AANGEPAST: Timer staat nu vast op 5 seconden per vraag
+            timeLeft = 5;
             lblTimer.Text = $"Tijd over: {timeLeft} seconden";
             questionTimer.Start();
         }
 
         private async void CheckAntwoord(string gekozenAntwoord)
         {
-            questionTimer.Stop(); // De timer stopt, maar de tekst verandert NIET
+            questionTimer.Stop();
             Question huidigeVraag = categoryQuestions[currentQuestionIndex];
 
-            // 1. Laat de feedback zien in je NIEUWE label (lblFeedback)
             if (gekozenAntwoord == "")
             {
                 lblFeedback.Text = $"Tijd op! Het antwoord was: {huidigeVraag.CorrectAnswer}";
@@ -111,8 +103,6 @@ namespace Quizmester_App
                 lblFeedback.Text = "Helemaal goed!";
                 lblFeedback.ForeColor = Color.LimeGreen;
                 score++;
-
-                // NIEUW: Werk de score direct bij op het scherm!
                 lblScore.Text = $"Score: {score} / {categoryQuestions.Count}";
             }
             else
@@ -121,13 +111,8 @@ namespace Quizmester_App
                 lblFeedback.ForeColor = Color.Red;
             }
 
-            // 2. Wacht 2 seconden zodat de speler de uitslag kan lezen
             await Task.Delay(2000);
-
-            // 3. Maak de feedback tekst weer leeg, zodat hij onzichtbaar wordt voor de volgende vraag
             lblFeedback.Text = "";
-
-            // 4. Ga door naar de volgende vraag
             currentQuestionIndex++;
 
             if (currentQuestionIndex < categoryQuestions.Count)
@@ -136,7 +121,6 @@ namespace Quizmester_App
             }
             else
             {
-                // Einde van de quiz
                 MessageBox.Show($"Einde van de quiz! Jouw score: {score} van de {categoryQuestions.Count}");
 
                 try
@@ -162,8 +146,6 @@ namespace Quizmester_App
             }
         }
 
-
-        // Deze 4 zijn vrij duidelijk
         private void btnAnswer1_Click(object sender, EventArgs e)
         {
             CheckAntwoord(btnAnswer1.Text);
@@ -186,44 +168,28 @@ namespace Quizmester_App
 
         private void lblTimer_Click(object sender, EventArgs e)
         {
-
         }
 
         private void questionTimer_Tick(object sender, EventArgs e)
         {
             timeLeft--;
-            lblTimer.Text = $"Tijd over: {timeLeft} seconden";
+            lblTimer.Text = $"Tijd over: {timeLeft}";
 
-
-            if (timeLeft <= 10)
-            {
-                lblTimer.ForeColor = Color.Red; // Maak de tekst rood als waarschuwing!
-            }
-            else
-            {
-                lblTimer.ForeColor = Color.LimeGreen; 
-            }
+            // Blijft altijd groen
+            lblTimer.ForeColor = Color.LimeGreen;
 
             if (timeLeft <= 0)
             {
                 questionTimer.Stop();
-
-                // Stuur het lege antwoord door, ZONDER hier al een pop-up te laten zien
                 CheckAntwoord("");
             }
         }
 
         private async void btnJoker_Click(object sender, EventArgs e)
         {
-            // Stop de timer
             questionTimer.Stop();
-
-            // Maak de knop onklikbaar zodat je hem maar 1 keer kunt gebruiken!
             btnJoker.Enabled = false;
-
             MessageBox.Show("Joker ingezet! We slaan deze vraag over zonder strafpunten.");
-
-            // Ga door naar de volgende vraag
             currentQuestionIndex++;
 
             if (currentQuestionIndex < categoryQuestions.Count)
@@ -232,10 +198,8 @@ namespace Quizmester_App
             }
             else
             {
-                // Als je de Joker toevallig op de allerlaatste vraag inzet, 
-                // moeten we de quiz wel netjes kunnen afsluiten!
                 MessageBox.Show($"Einde van de quiz! Jouw score: {score} van de {categoryQuestions.Count}");
-                globalTimer.Stop(); 
+                globalTimer.Stop();
 
                 try
                 {
@@ -262,12 +226,21 @@ namespace Quizmester_App
 
         private async void globalTimer_Tick(object sender, EventArgs e)
         {
-            globalTimeLeft--; // Haal er 1 seconde van af
-            lblGlobalTimer.Text = $"Totale tijd: {globalTimeLeft}"; // Laat het zien op het scherm
+            globalTimeLeft--;
+            lblGlobalTimer.Text = $"Totale tijd: {globalTimeLeft}";
+
+            // AANGEPAST: Totale timer wordt rood bij 15 seconden of minder
+            if (globalTimeLeft <= 15)
+            {
+                lblGlobalTimer.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblGlobalTimer.ForeColor = Color.LimeGreen;
+            }
 
             if (globalTimeLeft <= 0)
             {
-                // De minuut is voorbij! Stop alles.
                 globalTimer.Stop();
                 questionTimer.Stop();
 
@@ -275,7 +248,6 @@ namespace Quizmester_App
 
                 try
                 {
-                    // Sla de huidige score direct op
                     var nieuweScore = new Score
                     {
                         UserId = Form1.CurrentUser.Id,
@@ -290,7 +262,6 @@ namespace Quizmester_App
                     MessageBox.Show("Fout bij het opslaan van de score: " + ex.Message);
                 }
 
-                // Open het scoreboard en sluit de quiz
                 ScoreboardForm scoreboard = new ScoreboardForm();
                 scoreboard.Show();
                 this.Close();

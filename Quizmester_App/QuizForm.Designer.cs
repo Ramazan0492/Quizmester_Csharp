@@ -114,7 +114,7 @@
             lblTimer.BackColor = Color.Black;
             lblTimer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTimer.ForeColor = Color.LimeGreen;
-            lblTimer.Location = new Point(74, 356);
+            lblTimer.Location = new Point(9, 356);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(133, 25);
             lblTimer.TabIndex = 5;
@@ -163,7 +163,7 @@
             lblFeedback.BackColor = Color.Black;
             lblFeedback.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFeedback.ForeColor = Color.Transparent;
-            lblFeedback.Location = new Point(470, 356);
+            lblFeedback.Location = new Point(327, 353);
             lblFeedback.Name = "lblFeedback";
             lblFeedback.Size = new Size(135, 28);
             lblFeedback.TabIndex = 8;
