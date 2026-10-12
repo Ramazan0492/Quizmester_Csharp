@@ -181,5 +181,13 @@ namespace Quizmester_App
                 }
             }
         }
+
+        private void btnBackToMenu_Click(object sender, EventArgs e)
+        {
+            MainMenu hoofdMenu = new MainMenu();
+            hoofdMenu.Show();
+
+            this.Close();
+        }
     }
 }

@@ -40,6 +40,7 @@
             btnDelete = new Button();
             lstUsers = new ListBox();
             btnDeleteUser = new Button();
+            btnBackToMenu = new Button();
             SuspendLayout();
             // 
             // lstQuestions
@@ -129,18 +130,29 @@
             // 
             // btnDeleteUser
             // 
-            btnDeleteUser.Location = new Point(597, 394);
+            btnDeleteUser.Location = new Point(603, 394);
             btnDeleteUser.Name = "btnDeleteUser";
             btnDeleteUser.Size = new Size(154, 42);
             btnDeleteUser.TabIndex = 12;
             btnDeleteUser.Text = "Verwijder Speler";
             btnDeleteUser.UseVisualStyleBackColor = true;
             // 
+            // btnBackToMenu
+            // 
+            btnBackToMenu.Location = new Point(408, 394);
+            btnBackToMenu.Name = "btnBackToMenu";
+            btnBackToMenu.Size = new Size(138, 42);
+            btnBackToMenu.TabIndex = 13;
+            btnBackToMenu.Text = "Terug MainMenu";
+            btnBackToMenu.UseVisualStyleBackColor = true;
+            btnBackToMenu.Click += btnBackToMenu_Click;
+            // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnBackToMenu);
             Controls.Add(btnDeleteUser);
             Controls.Add(lstUsers);
             Controls.Add(btnDelete);
@@ -175,5 +187,6 @@
         private Button btnDelete;
         private ListBox lstUsers;
         private Button btnDeleteUser;
+        private Button btnBackToMenu;
     }
 }
