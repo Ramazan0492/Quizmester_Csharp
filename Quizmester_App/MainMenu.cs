@@ -80,5 +80,12 @@ namespace Quizmester_App
             admin.Show();
             this.Hide();
         }
+
+        private void btnTimeTrial_Click(object sender, EventArgs e)
+        {
+            TimeTrialForm timeTrial = new TimeTrialForm();
+            timeTrial.Show();
+            this.Hide();
+        }
     }
 }

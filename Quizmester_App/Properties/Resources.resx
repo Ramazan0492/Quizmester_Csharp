@@ -124,8 +124,11 @@
   <data name="akatsuki-wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\akatsuki-wallpaper.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zoro-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zoro-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="better-picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\better-picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="luffy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\luffy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngtree-quiz-time-bubble-speech-banner-vector-design-png-image_9147207" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngtree-quiz-time-bubble-speech-banner-vector-design-png-image_9147207.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,8 +136,8 @@
   <data name="luffy-png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\luffy-png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="luffy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\luffy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zoro-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoro-image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="onepiece" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\onepiece.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,7 +148,7 @@
   <data name="better-size" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\better-size.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="better-picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\better-picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Aot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Aot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

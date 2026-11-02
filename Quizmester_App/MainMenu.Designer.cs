@@ -33,6 +33,7 @@
             btnStartQuiz = new Button();
             btnGeneralQuiz = new Button();
             btnAdminPanel = new Button();
+            btnTimeTrial = new Button();
             SuspendLayout();
             // 
             // cmbCategories
@@ -103,6 +104,21 @@
             btnAdminPanel.UseVisualStyleBackColor = false;
             btnAdminPanel.Click += btnAdminPanel_Click;
             // 
+            // btnTimeTrial
+            // 
+            btnTimeTrial.BackColor = Color.Black;
+            btnTimeTrial.FlatAppearance.BorderSize = 0;
+            btnTimeTrial.FlatStyle = FlatStyle.Flat;
+            btnTimeTrial.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnTimeTrial.ForeColor = Color.Red;
+            btnTimeTrial.Location = new Point(300, 368);
+            btnTimeTrial.Name = "btnTimeTrial";
+            btnTimeTrial.Size = new Size(204, 70);
+            btnTimeTrial.TabIndex = 5;
+            btnTimeTrial.Text = "Time Trial";
+            btnTimeTrial.UseVisualStyleBackColor = false;
+            btnTimeTrial.Click += btnTimeTrial_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -110,6 +126,7 @@
             BackgroundImage = Properties.Resources.akatsuki_wallpaper;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnTimeTrial);
             Controls.Add(btnAdminPanel);
             Controls.Add(btnGeneralQuiz);
             Controls.Add(btnStartQuiz);
@@ -129,5 +146,6 @@
         private Button btnStartQuiz;
         private Button btnGeneralQuiz;
         private Button btnAdminPanel;
+        private Button btnTimeTrial;
     }
 }
