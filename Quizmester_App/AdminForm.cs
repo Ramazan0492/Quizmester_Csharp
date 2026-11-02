@@ -137,8 +137,6 @@ namespace Quizmester_App
             }
         }
 
-        // --- NIEUW GEDEELTE VOOR GEBRUIKERS ---
-
         private async Task LaadGebruikers()
         {
             try

@@ -20,6 +20,9 @@ namespace Quizmester_App
         public int timeLeft;
         public int globalTimeLeft = 60;
 
+        // NIEUW: Deze houdt bij welke vraag de 'Speciale Vraag' is
+        public int specialQuestionIndex = -1;
+
         public QuizForm(long categoryId)
         {
             InitializeComponent();
@@ -45,6 +48,11 @@ namespace Quizmester_App
 
                 if (categoryQuestions.Count > 0)
                 {
+                    // NIEUW: Kies een willekeurige bonusvraag in de eerste 20 vragen
+                    Random rnd = new Random();
+                    int maxVragen = Math.Min(20, categoryQuestions.Count);
+                    specialQuestionIndex = rnd.Next(0, maxVragen);
+
                     ToonVraag();
                     globalTimer.Start();
                 }
@@ -77,12 +85,30 @@ namespace Quizmester_App
 
             lblTimer.ForeColor = Color.LimeGreen;
 
+            // Zorg dat de knoppen weer aan staan na gebruik van een 50/50 Joker
+            btnAnswer1.Enabled = true;
+            btnAnswer2.Enabled = true;
+            btnAnswer3.Enabled = true;
+            btnAnswer4.Enabled = true;
+
             btnAnswer1.Text = antwoordenLijst[0];
             btnAnswer2.Text = antwoordenLijst[1];
             btnAnswer3.Text = antwoordenLijst[2];
             btnAnswer4.Text = antwoordenLijst[3];
 
-            // AANGEPAST: Timer staat nu vast op 5 seconden per vraag
+            // NIEUW: Check of dit de speciale vraag is (Goud + Geluid)
+            if (currentQuestionIndex == specialQuestionIndex)
+            {
+                lblQuestion.BackColor = Color.Gold;
+                lblQuestion.ForeColor = Color.Black;
+                System.Media.SystemSounds.Exclamation.Play(); // Speel een Windows waarschuwingsgeluid af
+            }
+            else
+            {
+                lblQuestion.BackColor = Color.White; // Reset de kleur voor normale vragen
+                lblQuestion.ForeColor = Color.Black;
+            }
+
             timeLeft = 5;
             lblTimer.Text = $"Tijd over: {timeLeft} seconden";
             questionTimer.Start();
@@ -102,7 +128,17 @@ namespace Quizmester_App
             {
                 lblFeedback.Text = "Helemaal goed!";
                 lblFeedback.ForeColor = Color.LimeGreen;
-                score++;
+
+                // NIEUW: Geef 3 punten voor de Speciale Vraag, of 1 punt voor een normale!
+                if (currentQuestionIndex == specialQuestionIndex)
+                {
+                    score += 3;
+                }
+                else
+                {
+                    score++;
+                }
+
                 lblScore.Text = $"Score: {score} / {categoryQuestions.Count}";
             }
             else
@@ -121,7 +157,7 @@ namespace Quizmester_App
             }
             else
             {
-                MessageBox.Show($"Einde van de quiz! Jouw score: {score} van de {categoryQuestions.Count}");
+                MessageBox.Show($"Einde van de quiz! Jouw score: {score}");
 
                 try
                 {
@@ -175,7 +211,6 @@ namespace Quizmester_App
             timeLeft--;
             lblTimer.Text = $"Tijd over: {timeLeft}";
 
-            // Blijft altijd groen
             lblTimer.ForeColor = Color.LimeGreen;
 
             if (timeLeft <= 0)
@@ -198,7 +233,7 @@ namespace Quizmester_App
             }
             else
             {
-                MessageBox.Show($"Einde van de quiz! Jouw score: {score} van de {categoryQuestions.Count}");
+                MessageBox.Show($"Einde van de quiz! Jouw score: {score}");
                 globalTimer.Stop();
 
                 try
@@ -211,7 +246,6 @@ namespace Quizmester_App
                     };
 
                     await Form1.supabase.From<Score>().Insert(nieuweScore);
-                    MessageBox.Show("Score succesvol opgeslagen in de database!");
                 }
                 catch (Exception ex)
                 {
@@ -229,7 +263,6 @@ namespace Quizmester_App
             globalTimeLeft--;
             lblGlobalTimer.Text = $"Totale tijd: {globalTimeLeft}";
 
-            // AANGEPAST: Totale timer wordt rood bij 15 seconden of minder
             if (globalTimeLeft <= 15)
             {
                 lblGlobalTimer.ForeColor = Color.Red;
@@ -244,7 +277,7 @@ namespace Quizmester_App
                 globalTimer.Stop();
                 questionTimer.Stop();
 
-                MessageBox.Show($"De tijd is om! Je minuut is voorbij. Jouw score: {score} van de {categoryQuestions.Count}");
+                MessageBox.Show($"De tijd is om! Je minuut is voorbij. Jouw score: {score}");
 
                 try
                 {
@@ -266,6 +299,36 @@ namespace Quizmester_App
                 scoreboard.Show();
                 this.Close();
             }
+        }
+
+        private void btnFiftyFifty_Click(object sender, EventArgs e)
+        {
+            // De 50/50 Joker mag je maar 1 keer gebruiken
+            btnFiftyFifty.Enabled = false;
+            Question huidigeVraag = categoryQuestions[currentQuestionIndex];
+
+            // Verzamel alle antwoordknoppen
+            List<Button> alleKnoppen = new List<Button> { btnAnswer1, btnAnswer2, btnAnswer3, btnAnswer4 };
+            List<Button> fouteKnoppen = new List<Button>();
+
+            // Zoek de drie foute antwoorden
+            foreach (Button btn in alleKnoppen)
+            {
+                if (btn.Text != huidigeVraag.CorrectAnswer)
+                {
+                    fouteKnoppen.Add(btn);
+                }
+            }
+
+            // Schud de foute antwoorden door elkaar
+            Random rnd = new Random();
+            fouteKnoppen = fouteKnoppen.OrderBy(x => rnd.Next()).ToList();
+
+            // Schakel 2 willekeurige foute knoppen uit
+            fouteKnoppen[0].Enabled = false;
+            fouteKnoppen[0].Text = "";
+            fouteKnoppen[1].Enabled = false;
+            fouteKnoppen[1].Text = "";
         }
     }
 }

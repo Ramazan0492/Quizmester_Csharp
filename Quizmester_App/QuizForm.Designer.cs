@@ -41,6 +41,7 @@
             lblGlobalTimer = new Label();
             lblFeedback = new Label();
             lblScore = new Label();
+            btnFiftyFifty = new Button();
             SuspendLayout();
             // 
             // lblQuestion
@@ -163,7 +164,7 @@
             lblFeedback.BackColor = Color.Black;
             lblFeedback.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFeedback.ForeColor = Color.Transparent;
-            lblFeedback.Location = new Point(327, 353);
+            lblFeedback.Location = new Point(311, 353);
             lblFeedback.Name = "lblFeedback";
             lblFeedback.Size = new Size(135, 28);
             lblFeedback.TabIndex = 8;
@@ -182,6 +183,20 @@
             lblScore.TabIndex = 9;
             lblScore.Text = "Score: 0";
             // 
+            // btnFiftyFifty
+            // 
+            btnFiftyFifty.BackColor = Color.DarkRed;
+            btnFiftyFifty.FlatAppearance.BorderSize = 0;
+            btnFiftyFifty.FlatStyle = FlatStyle.Flat;
+            btnFiftyFifty.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFiftyFifty.Location = new Point(629, 341);
+            btnFiftyFifty.Name = "btnFiftyFifty";
+            btnFiftyFifty.Size = new Size(157, 58);
+            btnFiftyFifty.TabIndex = 10;
+            btnFiftyFifty.Text = "50/50 Joker";
+            btnFiftyFifty.UseVisualStyleBackColor = false;
+            btnFiftyFifty.Click += btnFiftyFifty_Click;
+            // 
             // QuizForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -189,6 +204,7 @@
             BackgroundImage = Properties.Resources.better_picture;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(798, 450);
+            Controls.Add(btnFiftyFifty);
             Controls.Add(lblScore);
             Controls.Add(lblFeedback);
             Controls.Add(lblGlobalTimer);
@@ -220,5 +236,6 @@
         private Label lblGlobalTimer;
         private Label lblFeedback;
         private Label lblScore;
+        private Button btnFiftyFifty;
     }
 }
